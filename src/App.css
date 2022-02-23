@@ -1,38 +1,79 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap%27");
+@import url("https://fonts.googleapis.com/css?family=Cairo&display=swap%27");
+
+html[dir="ltr"] {
+  font-family: 'Poppins';
+}
+html[dir="rtl"] {
+  font-family: 'Cairo';
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+nav{
   display: flex;
+
+  flex-direction: row;
+  justify-content: space-between;
+  width: 70%;
+  margin: auto;
+  background-color: white;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+div.mobile-menu ul {
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+ul li button{
+  padding: 14px 16px;
+  margin: .5rem;
+  background: transparent;
+  border: none;
+  font-size: large;
+  font-weight: 500;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+
+}
+div.mobile-menu ul li button{
+  text-align: start;
+  width: 95%;
+  border-bottom: 1px solid rgb(231, 231, 231);
+}
+ul li button:hover{
+  border-bottom: 1px solid red;
 }
 
-.App-link {
-  color: #61dafb;
+div.mobile-menu{
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  width: 100vw;
+  min-height: 30vh;
+  background-color: white;
+  border-top: 2px solid red;
+  box-shadow: -1px 4px 10px 1px rgba(0,0,0,0.31);
+  transition: visibility .5s, opacity 0.5s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (min-width: 1050px){
+  .ul-mobile{
+    display: none;
   }
-  to {
-    transform: rotate(360deg);
+  div.mobile-menu{
+    display: none;
   }
+}
+
+@media (max-width: 1050px){
+  .ul-desktop{
+    display: none;
+  }
+  nav{
+    width: 85%;
+  }
+  
 }
