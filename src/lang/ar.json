@@ -4,5 +4,9 @@
     "nav.contact_sales": "كلم المبيعات",
     "nav.careers": "الوظائف",
     "nav.sign_in": "تسجيل الدخول",
-    "nav.language": "ENG"
+    "nav.language": "ENG",
+    "paper.title": "الرجاء إدخال رقم الشحنة وتتبع الشحنة الخاصة بك",
+    "paper.describtion": "تتبع شحنة أخرى",
+    "paper.input.placeholder": "رقم التتبع",
+    "paper.input.error": "رقم التتبع غير صحيح"
 }

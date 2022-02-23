@@ -4,5 +4,9 @@
     "nav.contact_sales": "Contact Sales",
     "nav.careers": "Careers",
     "nav.sign_in": "Sign In",
-    "nav.language": "عربي"
+    "nav.language": "عربي",
+    "paper.title": "Please Enter your shipment number and Track your Shipment",
+    "paper.describtion": "Track another shipment",
+    "paper.input.placeholder": "Tracking Number",
+    "paper.input.error": "Incorrect Tracking number"
 }

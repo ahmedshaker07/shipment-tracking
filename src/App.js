@@ -5,6 +5,7 @@ import TrackingInfoPage from "./views/trackingInfoPage";
 import Header from './components/header'
 import { Context } from "./components/wrapper";
 
+import "antd/dist/antd.css";
 import './App.css';
 
 

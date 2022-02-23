@@ -10,10 +10,10 @@ html[dir="rtl"] {
 
 nav{
   display: flex;
-
   flex-direction: row;
   justify-content: space-between;
   width: 70%;
+  /* height: 9vh; */
   margin: auto;
   background-color: white;
 }
@@ -77,3 +77,25 @@ div.mobile-menu{
   }
   
 }
+
+.landing-paper{
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.landing-paper .paper{
+  min-width: 20%;
+  padding: 2rem 2rem;
+  box-shadow: -1px 4px 10px 1px rgba(0,0,0,0.2);
+  border-radius: 10px;
+}
+
+.landing-paper .paper form.input{
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
