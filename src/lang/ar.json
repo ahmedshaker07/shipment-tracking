@@ -8,7 +8,7 @@
     "paper.title": "الرجاء إدخال رقم الشحنة وتتبع الشحنة الخاصة بك",
     "paper.describtion": "تتبع شحنة أخرى",
     "paper.input.placeholder": "رقم التتبع",
-    "paper.input.error": "رقم التتبع غير صحيح",
+    "paper.input.error": "رقم الشحنة غير موجود",
     "info.trackingNumber": "رقم الشحنة {trackingNo}",
     "info.latestUpdate": "اخر تحديث",
     "info.merchant": "اسم التاجر",
