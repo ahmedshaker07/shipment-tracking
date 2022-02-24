@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap%27");
+/* @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap%27");
 @import url("https://fonts.googleapis.com/css?family=Cairo&display=swap%27");
 
 html[dir="ltr"] {
@@ -6,19 +6,18 @@ html[dir="ltr"] {
 }
 html[dir="rtl"] {
   font-family: 'Cairo';
-}
+} */
 
 nav{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 70%;
-  /* height: 9vh; */
   margin: auto;
   background-color: white;
 }
 
-ul {
+div.mobile-menu ul, nav ul {
   list-style-type: none;
   display: flex;
   flex-direction: row;
@@ -27,21 +26,22 @@ ul {
 div.mobile-menu ul {
   flex-direction: column;
 }
-ul li button{
+div.mobile-menu ul li button,nav ul li button{
   padding: 14px 16px;
   margin: .5rem;
   background: transparent;
   border: none;
   font-size: large;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   border-bottom: 1px solid transparent;
-
 }
 div.mobile-menu ul li button{
   text-align: start;
   width: 95%;
   border-bottom: 1px solid rgb(231, 231, 231);
+  font-weight: 600;
+
 }
 ul li button:hover{
   border-bottom: 1px solid red;
@@ -57,25 +57,7 @@ div.mobile-menu{
   border-top: 2px solid red;
   box-shadow: -1px 4px 10px 1px rgba(0,0,0,0.31);
   transition: visibility .5s, opacity 0.5s ease;
-}
-
-@media (min-width: 1050px){
-  .ul-mobile{
-    display: none;
-  }
-  div.mobile-menu{
-    display: none;
-  }
-}
-
-@media (max-width: 1050px){
-  .ul-desktop{
-    display: none;
-  }
-  nav{
-    width: 85%;
-  }
-  
+  z-index: 1;
 }
 
 .landing-paper{
@@ -99,3 +81,93 @@ div.mobile-menu{
   margin-top: 20px;
 }
 
+div.delivery-main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+div.delivery-status{
+  min-height: 20vh;
+  width: 70%;
+  margin: auto;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 10px;
+  margin-top: 2%;
+  display: flex;
+  flex-direction: column;
+}
+
+div.delivery-status div.info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-bottom: 1px solid rgb(221, 221, 221);
+  padding-top: 10px;
+}
+div.delivery-status div.progress{
+  margin: 30px;
+}
+
+div.delivery-info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 70%;
+  margin: 3% auto;
+}
+
+div.delivery-info div.delivery-progress{
+  width: 70%;
+}
+
+div.delivery-info div.delivery-address{
+  width: 27%;
+}
+
+div.delivery-info div.delivery-address div{
+  min-height: 10vh;
+  background-color: rgba(248,248,248,250);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.olele .ant-steps-item-finish>.ant-steps-item-container>.ant-steps-item-tail:after {
+  background-color: red;
+}
+
+.olele .ant-steps-item-title{
+  white-space: nowrap;
+}
+
+@media (min-width: 1050px){
+  .ul-mobile{
+    display: none;
+  }
+  div.mobile-menu{
+    display: none;
+  }
+}
+
+@media (max-width: 1050px){
+  .ul-desktop{
+    display: none;
+  }
+  nav{
+    width: 95%;
+  }
+  div.delivery-status{
+    width: 95%;
+  }
+  div.delivery-info{
+    flex-direction: column;
+    width: 95%;
+  }
+  div.delivery-info div.delivery-address{
+    width: 95%;
+  }
+  div.delivery-info div.delivery-progress{
+    width: 95%;
+  }
+}

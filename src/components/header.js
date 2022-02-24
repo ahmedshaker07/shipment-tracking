@@ -1,5 +1,4 @@
 import React, { useContext, useRef } from "react";
-import { useNavigate } from "react-router-dom";
 import {FormattedMessage} from "react-intl";
 import { Context } from "./wrapper";
 import { Button } from 'antd';
@@ -8,7 +7,6 @@ import { MenuOutlined } from '@ant-design/icons';
 export default function Header({Intl,...props}) {
     const context = useContext(Context)
     const mobileMenu = useRef();
-    const navigate = useNavigate();
     
     const handleMobileMenu = () =>{
         if(mobileMenu.current.style.visibility==="hidden"||mobileMenu.current.style.visibility===""){

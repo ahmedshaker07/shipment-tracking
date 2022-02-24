@@ -5,6 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Wrapper from './components/wrapper'
 
+import 'antd/dist/antd.min.css';
+import './App.css';
+
 ReactDOM.render(
   <Wrapper>
     <App />
