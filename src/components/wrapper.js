@@ -4,6 +4,7 @@ import English from '../lang/en.json'
 import Arabic from '../lang/ar.json'
 import LogoEN from "../assets/images/bosta_logo_en.svg";
 import LogoAR from "../assets/images/bosta_logo_ar.svg";
+import { Spin } from 'antd';
 
 const local = "en"
 let lang;
@@ -17,8 +18,10 @@ export default function Wrapper(props) {
     const [messages, setMessages] = useState(lang);
     const [direction, setDirection] = useState("ltr");
     const [image, setImage] = useState();
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+
         if(localStorage.getItem("locale"))
             if(localStorage.getItem("locale")==="en"){
                 setLocale("en")
@@ -34,6 +37,8 @@ export default function Wrapper(props) {
             }
         else
             localStorage.setItem("locale","en")
+            
+        setLoading(false)
     }, []);
 
     const selectLang = () =>{
@@ -51,6 +56,11 @@ export default function Wrapper(props) {
     }
 
     return(
+        loading?
+        <div className="loading">
+            <Spin />
+        </div>
+        :
         <Context.Provider value={{locale,selectLang,image,direction}}>
             <IntlProvider messages={messages} locale={locale}>
                 {props.children}

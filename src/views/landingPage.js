@@ -1,30 +1,18 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-import { Tooltip, message, Button} from 'antd';
+import { Tooltip, Button} from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 
 import {FormattedMessage, injectIntl} from "react-intl";
-import axios from 'axios';
 
 function LandingPage({intl}) {
     
     const navigate = useNavigate();
 
-    const error = () => {
-        message.error(intl.formatMessage({id: 'paper.input.error'}));
-    };
-
     const handleSubmit = async (e)=>{
         e.preventDefault();
-        await axios
-            .get("https://tracking.bosta.co/shipments/track/"+e.target.trackingNO.value)
-            .then((res)=>{
-                navigate('/info', { state: {data: res.data} });
-            })
-            .catch(err=>{
-                error()
-            })
+        navigate('/track/'+e.target.trackingNO.value);
     }
 
     return(

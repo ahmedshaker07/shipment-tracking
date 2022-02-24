@@ -6,7 +6,12 @@ nav{
   margin: auto;
   background-color: white;
 }
-
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
 div.mobile-menu ul, nav ul {
   list-style-type: none;
   display: flex;

@@ -15,11 +15,11 @@ function App() {
         <BrowserRouter>
           <Header/>
           <Routes>
-            <Route path="/" element={<LandingPage/>} />
-            <Route path="/info" element={<TrackingInfoPage />} />
+            <Route path="/track" element={<LandingPage/>} />
+            <Route path="/track/:id" element={<TrackingInfoPage />} />
             <Route
                 path="*"
-                element={<Navigate to="/" />}
+                element={<Navigate to="/track" />}
             />
           </Routes>
         </BrowserRouter>
