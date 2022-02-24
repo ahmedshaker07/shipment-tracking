@@ -13,7 +13,7 @@ export const Context = React.createContext();
 
 export default function Wrapper(props) {
 
-    const [locale, setLocale] = useState("en");
+    const [locale, setLocale] = useState("ar");
     const [messages, setMessages] = useState(lang);
     const [direction, setDirection] = useState("ltr");
     const [image, setImage] = useState();

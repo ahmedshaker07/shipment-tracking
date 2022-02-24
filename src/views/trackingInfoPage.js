@@ -13,6 +13,7 @@ function TrackingInfoPage({intl,...props}) {
     const {state} = useLocation();
     const [current, setCurrent] = useState(0);
     const [status, setStatus] = useState("");
+    const [cancelReason, setCancelReason] = useState("");
     const [shipmentDetailsData, setShipmentDetailsData] = useState([]);
     const { Step } = Steps;
 
@@ -30,7 +31,7 @@ function TrackingInfoPage({intl,...props}) {
         {
             title: intl.formatMessage({id: 'table.time'}),
             dataIndex: 'time',
-            key: 'time',
+            key: 'time'
         },
         {
             title: intl.formatMessage({id: 'table.details'}),
@@ -38,20 +39,9 @@ function TrackingInfoPage({intl,...props}) {
             key: 'details',
         }
     ];
-
+    
     useEffect(() => {
-        state.data.TransitEvents.map((element,index)=>{
-            setShipmentDetailsData(shipmentDetailsData=>
-                [...shipmentDetailsData,
-                {
-                    key: index,
-                    hub: intl.formatMessage({id: `${element.hub}`}),
-                    date: dayjs(element.timestamp).format('DD/MM/YYYY'),
-                    time: dayjs(element.timestamp).format('hh:mm a'),
-                    details: intl.formatMessage({id: `${element.state}`})
-                }
-            ])
-        })
+        updateShipmentDetailsTable();
         if(state.data.CurrentStatus.state==="DELIVERED") {
             setCurrent(4);
             setStatus("finished");
@@ -64,7 +54,24 @@ function TrackingInfoPage({intl,...props}) {
             setCurrent(1);
             setStatus("proccess");
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    const updateShipmentDetailsTable = ()=>{
+        let newShipmentData = [];
+        state.data.TransitEvents.map((element,index)=>{
+            newShipmentData.push({
+                key: index,
+                hub: intl.formatMessage({id: `${element.hub}`}),
+                date: dayjs(element.timestamp).format('DD/MM/YYYY'),
+                time: dayjs(element.timestamp).format('hh:mm a'),
+                details: intl.formatMessage({id: `${element.state}`})
+            })
+            if(element.reason)
+                setCancelReason(element.reason)
+        })
+        setShipmentDetailsData(newShipmentData)
+    }
 
     const getLatestUpdateDate = (props)=>{
         return intl.formatMessage({id: `${dayjs(props).format('dddd')}`})+" "+
@@ -76,6 +83,18 @@ function TrackingInfoPage({intl,...props}) {
         + dayjs(state.data.PromisedDate).format(' YYYY ')
     }
 
+    const getStepperClassName = ()=>{
+        switch (status) {
+            case "finished":
+                return "stepperGreen"
+            case "error":
+                return "stepperRed"
+            case "proccess":
+                return "stepperYellow"
+            default: break;
+        }
+    }
+    
     return(
         <div className="delivery-main">
            <div className="delivery-status">
@@ -86,12 +105,11 @@ function TrackingInfoPage({intl,...props}) {
                     <Info headerID="info.deliveryDate" date={getPromisedDate(props)}/>
                 </div>
                 <div className="progress" dir="ltr">
-                    <Steps current={current} status={status} size="small" labelPlacement="vertical" className="olele">
-                        <Step style={{fontWeight:"bold"}} title={intl.formatMessage({id: 'step.first'})}/>
-                        <Step style={{fontWeight:"bold"}} title={intl.formatMessage({id: 'step.second'})}/>
-                        <Step style={{fontWeight:"bold"}} title={intl.formatMessage({id: 'step.third'})} 
-                                description={status==="finished"?"":intl.formatMessage({id: 'step.error'})} />
-                        <Step style={{fontWeight:"bold"}} icon={<SaveOutlined />} title={intl.formatMessage({id: 'step.fourth'})}/>
+                    <Steps current={current} status={status} size="small" labelPlacement="vertical" className={getStepperClassName()}>
+                        <Step title={intl.formatMessage({id: 'step.first'})}/>
+                        <Step title={intl.formatMessage({id: 'step.second'})}/>
+                        <Step title={intl.formatMessage({id: 'step.third'})} description={status==="finished"?"":intl.formatMessage({id: 'step.error'},{reason: cancelReason})} />
+                        <Step icon={<SaveOutlined />} title={intl.formatMessage({id: 'step.fourth'})}/>
                     </Steps>
                 </div>
            </div>

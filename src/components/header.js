@@ -1,10 +1,13 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef} from "react";
+import { useNavigate } from "react-router-dom";
 import {FormattedMessage} from "react-intl";
 import { Context } from "./wrapper";
 import { Button } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
 
 export default function Header({Intl,...props}) {
+
+    const navigate = useNavigate();
     const context = useContext(Context)
     const mobileMenu = useRef();
     
@@ -20,7 +23,9 @@ export default function Header({Intl,...props}) {
     }
 
     const redirect = ()=>{
-        window.location.replace('/')
+        navigate('/')
+        mobileMenu.current.style.visibility="hidden"
+        mobileMenu.current.style.opacity=0
     }
 
     return(
@@ -28,7 +33,7 @@ export default function Header({Intl,...props}) {
             <nav>
                 <ul className="ul-desktop">
                     <li style={{display:"flex",alignItems:"center"}}>
-                        <img  onClick={redirect} src={context.image} alt="logo" style={{height: "35px", display: "block", marginBottom: "5px", cursor:"pointer"}}/>
+                        <img className="nav-logo"  src={context.image} onClick={redirect} alt=""/>
                     </li>
                 </ul>
                 <ul className="ul-desktop">
@@ -38,16 +43,26 @@ export default function Header({Intl,...props}) {
                     <li><button onClick={redirect}><FormattedMessage id="nav.careers"/></button></li>
                 </ul>
                 <ul className="ul-desktop">
-                    <li><button onClick={redirect}><FormattedMessage id="nav.sign_in"/></button></li>
-                    <li><button onClick={context.selectLang} style={{color: "red"}}><FormattedMessage id="nav.language"/></button></li>
-                </ul>
-                <ul className="ul-mobile">
-                    <li style={{display:"flex",alignItems:"center"}}>
-                        <img src={context.image} onClick={redirect} alt="logo" style={{height: "35px", display: "block", marginBottom: "5px", cursor:"pointer"}}/>
+                    <li>
+                        <button onClick={redirect}>
+                            <FormattedMessage id="nav.sign_in"/>
+                        </button>
+                    </li>
+                    <li>
+                        <button onClick={context.selectLang} className="nav-language-button">
+                            <FormattedMessage id="nav.language"/>
+                        </button>
                     </li>
                 </ul>
                 <ul className="ul-mobile">
-                    <li><Button onClick={handleMobileMenu} type="link" icon={<MenuOutlined style={{ color: 'red' }}/>} /></li>
+                    <li className="logo-position" >
+                        <img className="nav-logo" src={context.image} onClick={redirect} alt=""/>
+                    </li>
+                </ul>
+                <ul className="ul-mobile">
+                    <li className="ant-icon-color">
+                        <Button onClick={handleMobileMenu} type="link" icon={<MenuOutlined />} />
+                    </li>
                 </ul>
             </nav>
             <div ref={mobileMenu} className="mobile-menu">
@@ -57,7 +72,7 @@ export default function Header({Intl,...props}) {
                     <li><button onClick={redirect}><FormattedMessage id="nav.contact_sales"/></button></li>
                     <li><button onClick={redirect}><FormattedMessage id="nav.careers"/></button></li>
                     <li><button onClick={redirect}><FormattedMessage id="nav.sign_in"/></button></li>
-                    <li><button onClick={context.selectLang} style={{color: "red"}}><FormattedMessage id="nav.language"/></button></li>
+                    <li><button onClick={context.selectLang} className="nav-language-button"><FormattedMessage id="nav.language"/></button></li>
                 </ul>
             </div>
         </header>

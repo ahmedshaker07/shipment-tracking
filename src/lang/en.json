@@ -20,19 +20,20 @@
     "table.time": "Time",
     "table.details": "Details",
     "address.header": "Delivery Address",    
-    "DELIVERED": "DELIVERED",
+    "DELIVERED": "Delivered",
     "TICKET_CREATED": "Ticket Created",
     "PACKAGE_RECEIVED": "Package Received",
     "NOT_YET_SHIPPED": "Not Yet Shipped",
     "OUT_FOR_DELIVERY": "Out for Delivery",
     "WAITING_FOR_CUSTOMER_ACTION": "Waiting for customer action",
     "DELIVERED_TO_SENDER": "Cancelled",
+    "RECEIVED_DELIVERY_LOCATION": "Received Delivery Location",
     "IN_TRANSIT":"In Transit",
     "step.first": "Shipment Created",
     "step.second": "Received From Merchant",
     "step.third": "Out For Delivery",
     "step.fourth": "Delivered",
-    "step.error": "Exception Reason",
+    "step.error": "{reason}",
     "Saturday": "Saturday",
     "Sunday": "Sunday",
     "Monday": "Monday",
@@ -61,5 +62,4 @@
     "Mohandseen Hub": "Mohandseen Hub",
     "Alexandria Hub":"Alexandria Hub",
     "undefined": "N/A"
-
 }
