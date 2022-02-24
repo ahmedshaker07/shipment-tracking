@@ -45,11 +45,15 @@ export default function Wrapper(props) {
         if(locale==="en"){
             setLocale("ar")
             setMessages(Arabic)
+            setImage(LogoEN)
+            setDirection("ltr")
             localStorage.setItem("locale","ar")
         }
         else{
             setLocale("en")
             setMessages(English)
+            setImage(LogoAR)
+            setDirection("rtl")
             localStorage.setItem("locale","en")
         }
         window.location.reload();
