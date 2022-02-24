@@ -59,7 +59,7 @@ function TrackingInfoPage({intl,...props}) {
 
     const updateShipmentDetailsTable = ()=>{
         let newShipmentData = [];
-        state.data.TransitEvents.map((element,index)=>{
+        state.data.TransitEvents.forEach((element,index)=>{
             newShipmentData.push({
                 key: index,
                 hub: intl.formatMessage({id: `${element.hub}`}),
