@@ -51,7 +51,6 @@ function TrackingInfoPage({intl,...props}) {
             await axios
             .get("https://tracking.bosta.co/shipments/track/"+id)
             .then(res=>{
-                // console.log(res.data)
                 setShipmentDetails(res.data)
                 updateShipmentDetailsTable(res.data.TransitEvents);
                 if(res.data.CurrentStatus.state==="DELIVERED") {
@@ -151,7 +150,7 @@ function TrackingInfoPage({intl,...props}) {
                    <h4 style={{margin:"10px 0"}}>{intl.formatMessage({id: 'address.header'})}</h4>
                    <div>
                         <p>
-                         امبابه شارع طلعت حرب مدينة العمال بجوار البرنس
+                           { intl.formatMessage({id: 'deliveryAddress'})}
                         </p>
                    </div>
                </div>

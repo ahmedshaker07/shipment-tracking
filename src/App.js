@@ -11,19 +11,19 @@ function App() {
   const context = useContext(Context)
 
       return (
-      <div dir={context.direction}>
-        <BrowserRouter>
-          <Header/>
-          <Routes>
-            <Route path="/track" element={<LandingPage/>} />
-            <Route path="/track/:id" element={<TrackingInfoPage />} />
-            <Route
-                path="*"
-                element={<Navigate to="/track" />}
-            />
-          </Routes>
-        </BrowserRouter>
-      </div>
+        <div dir={context.direction}>
+          <BrowserRouter>
+            <Header/>
+            <Routes>
+              <Route path="/track" element={<LandingPage/>} />
+              <Route path="/track/:id" element={<TrackingInfoPage />} />
+              <Route
+                  path="*"
+                  element={<Navigate to="/track" />}
+              />
+            </Routes>
+          </BrowserRouter>
+        </div>
   );
 }
 

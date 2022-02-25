@@ -7,7 +7,7 @@ import { SearchOutlined } from '@ant-design/icons';
 import {FormattedMessage, injectIntl} from "react-intl";
 
 function LandingPage({intl}) {
-    
+
     const navigate = useNavigate();
 
     const handleSubmit = async (e)=>{
@@ -21,10 +21,10 @@ function LandingPage({intl}) {
                 <h4><FormattedMessage id="paper.title"></FormattedMessage></h4>
                 <h3><FormattedMessage id="paper.describtion"></FormattedMessage></h3>
                 <form className="landing-input" onSubmit={handleSubmit}>
-                    <input required placeholder={intl.formatMessage({id: 'paper.input.placeholder'})} id="trackingNO"/>
-                        <Tooltip title="search">
-                            <Button className="search-button" type="primary" htmlType="submit" shape="circle" icon={<SearchOutlined className="search-button-icon"/>}/>
-                        </Tooltip>
+                    <input className="search-input" required placeholder={intl.formatMessage({id: 'paper.input.placeholder'})} id="trackingNO"/>
+                    <Tooltip title="search">
+                        <Button className="search-button" type="primary" htmlType="submit" icon={<SearchOutlined className="search-button-icon"/>}/>
+                    </Tooltip>
                 </form>
             </div>
         </div>

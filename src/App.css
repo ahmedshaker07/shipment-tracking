@@ -58,7 +58,6 @@ div.mobile-menu{
 .nav-logo{
   height: 35px;
   display: block; 
-  /* margin-bottom: 5px; */
   cursor: pointer;
 }
 .nav-language-button{
@@ -84,15 +83,37 @@ div.mobile-menu{
 }
 
 .landing-paper .paper form.landing-input{
-  display: flex;
-  flex-direction: row;
   margin-top: 20px;
 }
 
 .search-button{
   background: red;
   border: none;
-  margin: 0 1rem;
+  min-height: 100%;
+  width: 18%;
+  border-radius: 0 5px 5px 0;
+  border: none;
+  box-shadow: none;
+}
+
+div[dir="rtl"] .search-button{
+  border-radius: 5px 0 0 5px;
+}
+.search-input{
+  height: 32px;
+  border: none;
+  border: 1px solid black;
+  border-right: none;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  width: 82%;
+  padding: 4px;
+}
+
+div[dir="rtl"] .search-input{
+  border: 1px solid black;
+  border-left: none;
+  border-radius: 0 5px 5px 0;
 }
 
 .search-button-icon{
@@ -146,11 +167,15 @@ div.delivery-info div.delivery-address{
 }
 
 div.delivery-info div.delivery-address div{
-  min-height: 10vh;
+  /* min-height: 10vh; */
   background-color: rgba(248,248,248,250);
   border-radius: 10px;
   display: flex;
   align-items: center;
+  padding: 4px 16px;
+}
+div.delivery-info div.delivery-address div p{
+  margin: 0;
 }
 
 .info-component-main{
@@ -178,9 +203,6 @@ div.delivery-info div.delivery-address div{
 .ant-steps-small .ant-steps-item-title{
   font-weight: bold;
 }
-/* .stepperGreen .ant-steps-item-title,.stepperRed .ant-steps-item-title,.stepperYellow .ant-steps-item-title{
-  white-space: nowrap;
-} */
 
 .stepperRed .ant-steps-item-finish .ant-steps-item-icon {
   background-color: #fff;
