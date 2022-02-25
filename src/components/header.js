@@ -1,62 +1,64 @@
-import React, { useContext, useRef} from "react";
+import React, { useContext,useState,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
-import {FormattedMessage} from "react-intl";
-import { Context } from "./wrapper";
+import {injectIntl} from "react-intl";
+
 import { Button } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
 
-export default function Header({Intl,...props}) {
+import { Context } from "./wrapper";
+
+import LogoEN from "../assets/images/bosta_logo_en.svg";
+import LogoAR from "../assets/images/bosta_logo_ar.svg";
+
+function Header({intl,...props}) {
 
     const navigate = useNavigate();
-    const context = useContext(Context)
-    const mobileMenu = useRef();
+    const context = useContext(Context);
+    const [image, setImage] = useState();
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     
     const handleMobileMenu = () =>{
-        if(mobileMenu.current.style.visibility==="hidden"||mobileMenu.current.style.visibility===""){
-            mobileMenu.current.style.visibility="visible"
-            mobileMenu.current.style.opacity=1
-        }
-        else{
-            mobileMenu.current.style.visibility="hidden"
-            mobileMenu.current.style.opacity=0
-        }
+        setMobileMenuOpen(!mobileMenuOpen);
     }
 
     const redirect = ()=>{
-        navigate('/')
-        mobileMenu.current.style.visibility="hidden"
-        mobileMenu.current.style.opacity=0
+        navigate('/');
+        setMobileMenuOpen(false);
     }
+
+    useEffect(() => {
+        context.locale==="en"? setImage(LogoEN):setImage(LogoAR)
+    }, [context.locale]);
 
     return(
         <header>
             <nav>
                 <ul className="ul-desktop">
-                    <li style={{display:"flex",alignItems:"center"}}>
-                        <img className="nav-logo"  src={context.image} onClick={redirect} alt=""/>
+                    <li className="logo-position" >
+                        <img className="nav-logo"  src={image} onClick={redirect} alt=""/>
                     </li>
                 </ul>
                 <ul className="ul-desktop">
-                    <li><button onClick={redirect}><FormattedMessage id="nav.home"/></button></li>
-                    <li><button onClick={redirect}><FormattedMessage id="nav.pricing"/></button></li>
-                    <li><button onClick={redirect}><FormattedMessage id="nav.contact_sales"/></button></li>
-                    <li><button onClick={redirect}><FormattedMessage id="nav.careers"/></button></li>
+                    <li><button onClick={redirect}>{intl.formatMessage({id: 'nav.home'})}</button></li>
+                    <li><button onClick={redirect}>{intl.formatMessage({id: 'nav.pricing'})}</button></li>
+                    <li><button onClick={redirect}>{intl.formatMessage({id: 'nav.contact_sales'})}</button></li>
+                    <li><button onClick={redirect}>{intl.formatMessage({id: 'nav.careers'})}</button></li>
                 </ul>
                 <ul className="ul-desktop">
                     <li>
                         <button onClick={redirect}>
-                            <FormattedMessage id="nav.sign_in"/>
+                            {intl.formatMessage({id: 'nav.sign_in'})}
                         </button>
                     </li>
                     <li>
-                        <button onClick={context.selectLang} className="nav-language-button">
-                            <FormattedMessage id="nav.language"/>
+                        <button onClick={context.switchLanguage} className="nav-language-button">
+                            {intl.formatMessage({id: 'nav.language'})}
                         </button>
                     </li>
                 </ul>
                 <ul className="ul-mobile">
                     <li className="logo-position" >
-                        <img className="nav-logo" src={context.image} onClick={redirect} alt=""/>
+                        <img className="nav-logo" src={image} onClick={redirect} alt=""/>
                     </li>
                 </ul>
                 <ul className="ul-mobile">
@@ -65,16 +67,18 @@ export default function Header({Intl,...props}) {
                     </li>
                 </ul>
             </nav>
-            <div ref={mobileMenu} className="mobile-menu">
+            <div className={mobileMenuOpen?"mobile-menu mobile-menu-visible":"mobile-menu mobile-menu-hidden"}>
                 <ul>
-                    <li><button onClick={redirect}><FormattedMessage id="nav.home"/></button></li>
-                    <li><button onClick={redirect}><FormattedMessage id="nav.pricing"/></button></li>
-                    <li><button onClick={redirect}><FormattedMessage id="nav.contact_sales"/></button></li>
-                    <li><button onClick={redirect}><FormattedMessage id="nav.careers"/></button></li>
-                    <li><button onClick={redirect}><FormattedMessage id="nav.sign_in"/></button></li>
-                    <li><button onClick={context.selectLang} className="nav-language-button"><FormattedMessage id="nav.language"/></button></li>
+                    <li><button onClick={redirect}>{intl.formatMessage({id: 'nav.home'})}</button></li>
+                    <li><button onClick={redirect}>{intl.formatMessage({id: 'nav.pricing'})}</button></li>
+                    <li><button onClick={redirect}>{intl.formatMessage({id: 'nav.contact_sales'})}</button></li>
+                    <li><button onClick={redirect}>{intl.formatMessage({id: 'nav.careers'})}</button></li>
+                    <li><button onClick={redirect}>{intl.formatMessage({id: 'nav.sign_in'})}</button></li>
+                    <li><button onClick={context.switchLanguage} className="nav-language-button">{intl.formatMessage({id: 'nav.language'})}</button></li>
                 </ul>
             </div>
         </header>
     )
 }
+
+export default injectIntl(Header);

@@ -6,7 +6,7 @@
     "nav.sign_in": "Sign In",
     "nav.language": "عربي",
     "paper.title": "Please Enter your shipment number and Track your Shipment",
-    "paper.describtion": "Track another shipment",
+    "paper.describtion": "Enter your tracking No.",
     "paper.input.placeholder": "Tracking Number",
     "paper.input.error": "This tracking number does not exist",
     "info.trackingNumber": "Shipment No. {trackingNo}",
