@@ -1,4 +1,4 @@
-nav{
+nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -6,13 +6,14 @@ nav{
   margin: auto;
   background-color: white;
 }
-.loading{
+.loading {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 90vh;
 }
-div.mobile-menu ul, nav ul {
+div.mobile-menu ul,
+nav ul {
   list-style-type: none;
   display: flex;
   flex-direction: row;
@@ -21,9 +22,10 @@ div.mobile-menu ul, nav ul {
 div.mobile-menu ul {
   flex-direction: column;
 }
-div.mobile-menu ul li button,nav ul li button{
+div.mobile-menu ul li button,
+nav ul li button {
   padding: 14px 16px;
-  margin: .5rem;
+  margin: 0.5rem;
   background: transparent;
   border: none;
   font-size: large;
@@ -31,26 +33,25 @@ div.mobile-menu ul li button,nav ul li button{
   cursor: pointer;
   border-bottom: 1px solid transparent;
 }
-div.mobile-menu ul li button{
+div.mobile-menu ul li button {
   text-align: start;
   width: 95%;
   border-bottom: 1px solid rgb(231, 231, 231);
   font-weight: 600;
-
 }
-ul li button:hover{
+ul li button:hover {
   border-bottom: 1px solid red;
 }
 
-.mobile-menu-visible{
+.mobile-menu-visible {
   visibility: visible;
   opacity: 1;
 }
-.mobile-menu-hidden{
+.mobile-menu-hidden {
   visibility: hidden;
   opacity: 0;
 }
-.mobile-menu{
+.mobile-menu {
   /* visibility: hidden; */
   /* opacity: 0; */
   position: absolute;
@@ -58,28 +59,28 @@ ul li button:hover{
   min-height: 30vh;
   background-color: white;
   border-top: 2px solid red;
-  box-shadow: -1px 4px 10px 1px rgba(0,0,0,0.31);
-  transition: visibility .5s, opacity 0.5s ease;
+  box-shadow: -1px 4px 10px 1px rgba(0, 0, 0, 0.31);
+  transition: visibility 0.5s, opacity 0.3s ease;
   z-index: 1;
 }
 
-.nav-logo{
+.nav-logo {
   height: 35px;
-  display: block; 
+  display: block;
   cursor: pointer;
 }
-.nav-language-button{
+.nav-language-button {
   color: red;
 }
-.ul-desktop li.logo-position{
+.ul-desktop li.logo-position {
   display: flex;
   align-items: center;
 }
-.ul-mobile li.logo-position{
+.ul-mobile li.logo-position {
   display: flex;
   align-items: center;
 }
-.landing-paper{
+.landing-paper {
   min-height: 80vh;
   display: flex;
   justify-content: center;
@@ -87,18 +88,18 @@ ul li button:hover{
   flex-direction: column;
 }
 
-.landing-paper .paper{
+.landing-paper .paper {
   min-width: 20%;
   padding: 2rem 2rem;
-  box-shadow: -1px 4px 10px 1px rgba(0,0,0,0.2);
+  box-shadow: -1px 4px 10px 1px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
 
-.landing-paper .paper form.landing-input{
+.landing-paper .paper form.landing-input {
   margin-top: 20px;
 }
 
-.search-button{
+.search-button {
   background: red;
   border: none;
   min-height: 100%;
@@ -108,10 +109,10 @@ ul li button:hover{
   box-shadow: none;
 }
 
-div[dir="rtl"] .search-button{
+div[dir="rtl"] .search-button {
   border-radius: 5px 0 0 5px;
 }
-.search-input{
+.search-input {
   height: 32px;
   border: none;
   border: 1px solid black;
@@ -122,25 +123,26 @@ div[dir="rtl"] .search-button{
   padding: 4px;
 }
 
-div[dir="rtl"] .search-input{
+div[dir="rtl"] .search-input {
   border: 1px solid black;
   border-left: none;
   border-radius: 0 5px 5px 0;
 }
 
-.search-button-icon{
+.search-button-icon {
   color: white;
 }
-.ant-btn-primary:focus, .ant-btn-primary:hover {
+.ant-btn-primary:focus,
+.ant-btn-primary:hover {
   background: red;
 }
-div.delivery-main{
+div.delivery-main {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-div.delivery-status{
+div.delivery-status {
   min-height: 20vh;
   width: 65%;
   margin: auto;
@@ -151,18 +153,18 @@ div.delivery-status{
   flex-direction: column;
 }
 
-div.delivery-status div.info{
+div.delivery-status div.info {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   border-bottom: 1px solid rgb(221, 221, 221);
   padding-top: 10px;
 }
-div.delivery-status div.progress{
+div.delivery-status div.progress {
   margin: 30px;
 }
 
-div.delivery-info{
+div.delivery-info {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -170,49 +172,58 @@ div.delivery-info{
   margin: 3% auto;
 }
 
-div.delivery-info div.delivery-progress{
+div.delivery-info div.delivery-progress {
   width: 70%;
 }
 
-div.delivery-info div.delivery-address{
+div.delivery-info div.delivery-address {
   width: 27%;
 }
 
-div.delivery-info div.delivery-address div{
+div.delivery-info div.delivery-address div {
   /* min-height: 10vh; */
-  background-color: rgba(248,248,248,250);
+  background-color: rgba(248, 248, 248, 250);
   border-radius: 10px;
   display: flex;
   align-items: center;
   padding: 4px 16px;
 }
-div.delivery-info div.delivery-address div p{
+div.delivery-info div.delivery-address div p {
   margin: 0;
 }
 
-.info-component-main{
+.info-component-main {
   display: flex;
   flex-direction: column;
 }
-.info-component-main h3.title{
-  color: rgb(150,150,150);
+.info-component-main h3.title {
+  color: rgb(150, 150, 150);
 }
-.info-component-main .description h3{
+.info-component-main .description h3 {
   font-weight: bold;
 }
-.stepperGreen .ant-steps-item-finish>.ant-steps-item-container>.ant-steps-item-tail:after {
+.stepperGreen
+  .ant-steps-item-finish
+  > .ant-steps-item-container
+  > .ant-steps-item-tail:after {
   background-color: rgb(0, 199, 0);
 }
 
-.stepperRed .ant-steps-item-finish>.ant-steps-item-container>.ant-steps-item-tail:after {
+.stepperRed
+  .ant-steps-item-finish
+  > .ant-steps-item-container
+  > .ant-steps-item-tail:after {
   background-color: #ff4d4f;
 }
 
-.stepperYellow .ant-steps-item-finish>.ant-steps-item-container>.ant-steps-item-tail:after {
+.stepperYellow
+  .ant-steps-item-finish
+  > .ant-steps-item-container
+  > .ant-steps-item-tail:after {
   background-color: rgb(192, 192, 31);
 }
 
-.ant-steps-small .ant-steps-item-title{
+.ant-steps-small .ant-steps-item-title {
   font-weight: bold;
 }
 
@@ -220,64 +231,62 @@ div.delivery-info div.delivery-address div p{
   background-color: #fff;
   border-color: #ff4d4f;
 }
-.stepperRed .ant-steps-item-finish .ant-steps-item-icon>.ant-steps-icon {
+.stepperRed .ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon {
   color: #ff4d4f;
 }
 .stepperGreen .ant-steps-item-finish .ant-steps-item-icon {
   background-color: #fff;
   border-color: rgb(0, 197, 0);
-
 }
-.stepperGreen .ant-steps-item-finish .ant-steps-item-icon>.ant-steps-icon {
+.stepperGreen .ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon {
   color: rgb(0, 199, 0);
-
 }
 .stepperYellow .ant-steps-item-finish .ant-steps-item-icon {
   background-color: #fff;
   border-color: rgb(199, 199, 0);
 }
-.stepperYellow .ant-steps-item-finish .ant-steps-item-icon>.ant-steps-icon {
+.stepperYellow .ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon {
   color: rgb(199, 199, 0);
 }
-ul li.ant-icon-color .ant-btn-icon-only>.anticon {
+ul li.ant-icon-color .ant-btn-icon-only > .anticon {
   color: red;
 }
-.delivery-status-error{
+.delivery-status-error {
   color: #ff4d4f;
 }
 
-.delivery-status-finished{
+.delivery-status-finished {
   color: rgb(0, 199, 0);
 }
 
-.delivery-status-proccess{
+.delivery-status-proccess {
   color: rgb(199, 199, 0);
 }
 
-@media (min-width: 1050px){
-  .ul-mobile{
+@media (min-width: 1050px) {
+  .ul-mobile {
     display: none;
   }
-  div.mobile-menu{
+  div.mobile-menu {
     display: none;
   }
 }
 
-@media (max-width: 1050px){
-  .ul-desktop{
+@media (max-width: 1050px) {
+  .ul-desktop {
     display: none;
   }
   nav,
   div.delivery-status,
   div.delivery-info div.delivery-address,
-  div.delivery-info div.delivery-progress{
+  div.delivery-info div.delivery-progress {
     width: 95%;
   }
-  div.delivery-info{
+  div.delivery-info {
     flex-direction: column;
     width: 95%;
   }
-  div.delivery-status div.info{
+  div.delivery-status div.info {
     flex-direction: column;
     margin: 0 10px;
   }
